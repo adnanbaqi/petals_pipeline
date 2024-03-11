@@ -1,4 +1,4 @@
-Creating a README file is a great way to introduce and explain your project to potential users and contributors. For the GitHub repository at `https://github.com/adnanbaqi/petals_pipeline`, let's draft a README that outlines the project's purpose, how to set it up, use it, and contribute to it. Since I can't access external URLs directly, I'll create a general template that you can customize further as needed.
+
 
 ```markdown
 # Petals Pipeline
