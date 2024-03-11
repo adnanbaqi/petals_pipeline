@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Apply a linear gradient as the background */
+    background: linear-gradient(to bottom, #003063, #e0d6d6);
+}
+
+.container {
+    width: 60%;
+    height: 60%;
+    margin: 40px auto;
+    background: rgb(236, 236, 236);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+}
+
+.header {
+    position: absolute;
+    text-align: center;
+    border-bottom: 1px solid #e1e4e8;
+    padding-bottom: 20px;
+    margin-top: 20%;
+    
+}
+
+.header h1 {
+    color: #333;
+    font-size: 30px;
+    position: fixed;
+    bottom: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header h2 {
+    color: #333;
+    font-size: 14px;
+    position: fixed;
+    bottom: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header {
+    position: relative;
+    text-align: center;
+    bottom: 38%;
+    border-bottom: 1px solid #000000;
+}
+
+
+.proceed-button {
+    position: absolute;
+    top: 6%; /* Adjust as necessary for your design */
+    right: 20%; /* Adjust as necessary for your design */
+    background: #007bff;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.proceed-button:hover {
+    background: #012246;
+}
+
+.upload-box {
+    text-align: center;
+    margin-top: 15%;
+}
+
+.file-drop-area {
+    border: 2px dashed #00000048;
+    border-radius: 10px;
+    padding: 80px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.file-drop-area:hover {
+    background: #ffffff;
+}
+
+.browse-link {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.header::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+#response-data {
+    position: absolute;
+    top: 20%;
+    margin: 2px 0;
+    padding: 14px;
+}
+
+#response-data p {
+    margin: 20px 0;
+    color: #4b8faa;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+#response-data span {
+    font-weight: bold;
+    color: #0056b3;
+}
