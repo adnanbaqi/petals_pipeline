@@ -68,11 +68,6 @@ To contribute:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- Thanks to all the contributors who have helped shape the Petals Pipeline project.
-- Special thanks to Faisal for the TOTP encryption enhancements planned for V2.
-
 ## Contact
 
 For questions or support, please open an issue on the GitHub repository.
