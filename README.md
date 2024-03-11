@@ -73,4 +73,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions or support, please open an issue on the GitHub repository.
 ```
 
-Remember, this is a general template, so you should customize it to fit the specifics of your project, including any additional setup steps, usage examples, or contribution guidelines relevant to the Petals Pipeline.
