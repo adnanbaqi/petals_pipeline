@@ -1,0 +1,34 @@
+version: "3.7"
+services:
+  petals:
+    container_name: ImmutablePetals
+    image: learningathome/petals:main
+    ports:
+      - 31337:31337
+    volumes:
+      - cache:/cach
+    restart: unless-stopped
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          cpus: "8"
+          memory: 20g
+          generic_resources:
+            - discrete_resource_spec:
+                kind: "NVIDIA-GPU"
+                value: 1
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python -m petals.cli.run_server deepseek-ai/deepseek-coder-7b-instruct-v1.5 --port 31337 --initial_peers /ip4/45.79.153.218/tcp/31337/p2p/QmXfANcrDYnt5LTXKwtBP5nsTMLQdgxJHbK3L1hZdFN8km --public_name ${USER_NAME} --num_blocks 10 --stats_report_interval 2
+
+volumes:
+  cache:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/<user>/petals/cache'
+
