@@ -1,5 +1,5 @@
 FROM nvcr.io/nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04
-LABEL maintainer="bigscience-workshop"
+LABEL maintainer="Adnan"
 LABEL repository="petals"
 
 WORKDIR /home
