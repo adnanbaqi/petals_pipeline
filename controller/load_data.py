@@ -25,3 +25,22 @@ async def fetch_all():
     except Exception as e:
         # Handle exceptions
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(e))
+
+@router.get("/api/v1/load/{key}")
+async def load(key: str):
+    try:
+        # Assuming `key` is already url-safe and correctly formatted
+        response = client.get(key.encode())
+        
+        if response is None:
+            raise HTTPException(status_code=404, detail="Key not found")
+        
+        # Access the correct attribute of the response object to get the byte string
+        # This example assumes the attribute is named 'value', adjust as necessary
+        byte_value = response.value  # Adjust this line based on the actual attribute name
+        
+        text = byte_value.decode("utf-8")
+        return {"text": text}
+    except Exception as e:
+        return JSONResponse(content={"detail": str(e)}, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
