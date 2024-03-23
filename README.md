@@ -22,9 +22,10 @@ Leveraging cutting-edge technologies and algorithms, the Petals Pipeline aims to
 - Docker (for container management)
 - Python 3.8 or later
 - Access to a terminal or command line interface
+
 ```
 
-###Installation
+*Installation*
 
 1. Clone the repository:
 ```bash
