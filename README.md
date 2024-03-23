@@ -46,11 +46,12 @@ pip install -r requirements.txt
 
 ### Usage
 
-1. To start the pipeline, run the following command:
-```bash
+1. To start the pipeline, run the following command in orders:
+kindly set your immudb first...!
+
+```bash/terminal
 uvicorn app:app --reload
 ```
-
 2. Follow the on-screen instructions to input data or configure settings.
 
 ## Contributing
