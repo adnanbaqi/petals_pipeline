@@ -46,7 +46,7 @@ pip install -r requirements.txt
 ```bash
 docker build -t dockerfile .
 ```
-4.1 To run the container, open WSL and run 
+4.1 To run the container, open WSL and run the Client_runner
 
 ```bash
 sudo docker run -p 31330:31330 --ipc host --gpus all --volume petals-cache:/cache --rm \learningathome/petals:main \python -m petals.cli.run_server --port 31330 deepseek-ai/deepseek-coder-7b-instruct --public_name {YOUR_NAME} --initial_peers /ip4/45.79.153.218/tcp/31337/p2p/QmXfANcrDYnt5LTXKwtBP5nsTMLQdgxJHbK3L1hZdFN8km 
