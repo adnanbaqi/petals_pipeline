@@ -4,7 +4,7 @@ from torch.utils.data import Dataset, DataLoader
 from torch.optim import AdamW
 from transformers import AutoTokenizer
 import requests
-from petals import AutoDistributedModelForCausalLM
+from petals import AutoDistributedModelForCausalLM  # Assuming this is a valid import based on your script
 
 FETCH_URL = "http://localhost:8000/api/v1/load"
 
@@ -33,14 +33,17 @@ class FastAPIDataset(Dataset):
         input_ids = encoding['input_ids'].squeeze()  # Remove the batch dimension
         attention_mask = encoding['attention_mask'].squeeze()
         return input_ids, attention_mask
-#
+
 model_name = "deepseek-ai/deepseek-coder-7b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 INITIAL_PEERS = ['/ip4/45.79.153.218/tcp/31337/p2p/QmXfANcrDYnt5LTXKwtBP5nsTMLQdgxJHbK3L1hZdFN8km']
 model = AutoDistributedModelForCausalLM.from_pretrained(model_name, initial_peers=INITIAL_PEERS).cuda()
 
+# Ensure all model parameters require gradients
+for param in model.parameters():
+    param.requires_grad = True
+
 dataset = FastAPIDataset(FETCH_URL, tokenizer)
-# print(dataset.data) 
 dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -48,17 +51,23 @@ model.to(device)
 
 optimizer = AdamW(model.parameters(), lr=5e-5)
 
-num_epochs = 20  # Set the number of epochs for training
+num_epochs = 20
 for epoch in range(num_epochs):
-    model.train()
+    model.train()  # Ensure the model is in training mode
     for input_ids, attention_mask in dataloader:
         input_ids, attention_mask = input_ids.to(device), attention_mask.to(device)
 
+        # Clear previous gradients
+        optimizer.zero_grad()
+
+        # Forward pass: Compute predicted y by passing x to the model
         outputs = model(input_ids=input_ids, attention_mask=attention_mask, labels=input_ids)
         loss = outputs.loss
 
-        optimizer.zero_grad()
+        # Backward pass: Compute gradient of the loss with respect to model parameters
         loss.backward()
+
+        # Calling the step function on an Optimizer makes an update to its parameters
         optimizer.step()
 
         print(f"Epoch {epoch+1}, Loss: {loss.item()}")
