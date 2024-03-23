@@ -51,7 +51,7 @@ model.to(device)
 
 optimizer = AdamW(model.parameters(), lr=5e-5)
 
-num_epochs = 20
+num_epochs = 2
 for epoch in range(num_epochs):
     model.train()  # Ensure the model is in training mode
     for input_ids, attention_mask in dataloader:
