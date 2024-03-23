@@ -5,7 +5,8 @@
 
 ## Introduction
 
-Welcome to the Petals Pipeline project! This repository houses the code for an innovative data processing and analysis pipeline designed to efficiently handle and process large volumes of data. Leveraging cutting-edge technologies and algorithms, the Petals Pipeline aims to provide a robust and scalable solution for data scientists and developers alike.
+Welcome to the Petals Pipeline project! This repository houses the code for an innovative data processing and analysis pipeline designed to efficiently handle and process large volumes of data.
+Leveraging cutting-edge technologies and algorithms, the Petals Pipeline aims to provide a robust and scalable solution for data scientists and developers alike.
 
 ## Features
 
