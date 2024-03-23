@@ -10,10 +10,10 @@ Leveraging cutting-edge technologies and algorithms, the Petals Pipeline aims to
 
 ## Features
 
-- **Data Tokenization and Analysis**: Automated processing of incoming data, including tokenization, language detection, and token count.
-- **Secure Data Storage**: Utilizing immudb for secure, key-value storage of processed data.
-- **Enhanced Security in V2**: Future updates will include TOTP-based encryption and decryption for enhanced data security.
-- **Compatibility and Library Support**: Including support for the Petals library and a workaround for UVLoop on Windows platforms named `WindowsLoop`.
+- Data Tokenization and Analysis: Automated processing of incoming data, including tokenization, language detection, and token count.
+- Secure Data Storage: Utilizing immudb for secure, key-value storage of processed data.
+- Enhanced Security in V2: Future updates will include TOTP-based encryption and decryption for enhanced data security.
+- Compatibility and Library Support: Including support for the Petals library and a workaround for UVLoop on Windows platforms named `WindowsLoop`.
 
 ## Getting Started
 
