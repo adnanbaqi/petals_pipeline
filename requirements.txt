@@ -1,24 +1,8 @@
-ecdsa>=0.18.0
-requests>=2.31.0
-jsonify>=0.5
-# immudb-py>=1.4.0 - specified directly below with fixed version
-grpcio>=1.48.1
-# protobuf - version adjusted for compatibility
-google-api==0.1.12
-googleapis-common-protos==1.56.4
-fastapi==0.104.1
-# pydantic - version adjusted for petals and hivemind compatibility
-pyotp==2.9.0
-starlette~=0.27.0
-uvicorn==0.25.0
-immudb-py==1.4.0
-python-dotenv~=1.0.0
-cryptography~=41.0.7
-pygments>=2.17.2
-fastapi>=0.104.1
-guess-language-spirit>=0.5.3
-python_multipart>=0.0.9
-# transformers - version adjusted for petals compatibility
-torch>=2.2.1
+petals 
+fastapi
+immudb-py
+requests
+python-multipart
+
 
 
