@@ -35,14 +35,14 @@ git clone https://github.com/adnanbaqi/petals_pipeline.git
 cd petals_pipeline
 ```
 
-3. (Optional) If using Docker, build the Docker container:
-```bash
-docker build -t petals_pipeline .
-```
-
-4. Install required Python libraries:
+3. Install required Python libraries:
 ```bash
 pip install -r requirements.txt
+```
+
+4. (Optional) If using Docker, build the Docker container for Client_runner:
+```bash
+docker build -t dockerfile .
 ```
 
 ### Usage
