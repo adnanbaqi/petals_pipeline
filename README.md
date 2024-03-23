@@ -23,7 +23,7 @@ Welcome to the Petals Pipeline project! This repository houses the code for an i
 - Access to a terminal or command line interface
 ```
 
-#Installation
+##Installation
 
 1. Clone the repository:
 ```bash
