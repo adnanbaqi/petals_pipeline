@@ -28,9 +28,9 @@ else:
 # Assuming successful fetch, use the fetched text as the prompt (along with the labels)
 training_data = [(text, labels_text)] if text and labels_text else [("No text available for the given key.", "")]
 
-
+#petals-team/StableBeluga2
 # Initialize tokenizer and model
-model_name = "petals-team/StableBeluga2"
+model_name = "deepseek-ai/deepseek-coder-7b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 INITIAL_PEERS = ['/ip4/45.79.153.218/tcp/31337/p2p/QmXfANcrDYnt5LTXKwtBP5nsTMLQdgxJHbK3L1hZdFN8km']
 model = AutoDistributedModelForCausalLM.from_pretrained(model_name, initial_peers=INITIAL_PEERS).cuda()
@@ -86,7 +86,6 @@ for epoch in range(num_epochs):
         lr_scheduler.step()
 
         print(f"Epoch {epoch}, Loss: {loss.item():.3f}")
-
 
 # Save the fine-tuned model
 torch.save(custom_model.state_dict(), "your_custom_model_path_here.pth")
