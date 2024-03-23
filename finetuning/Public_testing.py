@@ -2,8 +2,9 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torch.optim import AdamW
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer
 import requests
+from petals import AutoDistributedModelForCausalLM
 
 FETCH_URL = "http://localhost:8000/api/v1/load"
 
@@ -32,12 +33,14 @@ class FastAPIDataset(Dataset):
         input_ids = encoding['input_ids'].squeeze()  # Remove the batch dimension
         attention_mask = encoding['attention_mask'].squeeze()
         return input_ids, attention_mask
-
-model_name = "petals-team/StableBeluga2"
+#
+model_name = "deepseek-ai/deepseek-coder-7b-instruct"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+INITIAL_PEERS = ['/ip4/45.79.153.218/tcp/31337/p2p/QmXfANcrDYnt5LTXKwtBP5nsTMLQdgxJHbK3L1hZdFN8km']
+model = AutoDistributedModelForCausalLM.from_pretrained(model_name, initial_peers=INITIAL_PEERS).cuda()
 
 dataset = FastAPIDataset(FETCH_URL, tokenizer)
+# print(dataset.data) 
 dataloader = DataLoader(dataset, batch_size=4, shuffle=True)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
